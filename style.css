@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-image: url("https://i.imgur.com/X3SpAlF.png");
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+
+.paper {
+  background-image: url("https://i.imgur.com/QfmRq84.png");
+  background-size: 500px;
+  background-position: center center;
+  padding: 200px 250px;
+/*  min-width: 800px; */
+  align-items: center;
+  box-shadow: 1px 15px 20px 15px rgba(0,0,0,0.5);
+  max-width: auto;
+  max-height: auto;
+  position: absolute;
+  font-size: 50;
+}
+
+.paper.heart {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.paper.image {
+  padding: 10px;
+}
+.paper.image p {
+  font-size: 30px;
+}
+
+img {
+  max-width: 40%;
+  height: auto;
+  display: block;
+  user-select: none;
+  margin: 0 auto;
+}
+
+.paper.heart::after {
+  content: "";
+  background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 150px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+
+p {
+  font-family: 'Zeyada';
+  font-size: 30px;
+  color: rgb(0,0,100);
+  opacity: 0.75;
+  user-select: none;
+  filter: drop-shadow(2px 1.5px 1px rgba(0,0,105,0.9));
+}
+
+.valentine-box {
+  position: absolute;
+  z-index: 0; /* Lower than papers */
+  background: rgba(255, 192, 203, 0.8);
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+}
+
+.question {
+  font-family: "Dancing Script", cursive;
+  font-size: 40px;
+  color: #e60073;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 120px;
+  z-index: 1000;
+}
+
+
+.valentine-btn {
+  display: inline-flex; /* Ensures the button is properly sized */
+  align-items: center;  /* Centers text vertically */
+  justify-content: center; /* Centers text horizontally */
+  pointer-events: auto;
+  z-index: 1001;
+  min-width: 150px;
+  min-height: 60px;
+  font-family: "Dancing Script", cursive;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 30px; /* Reduced padding to avoid oversized visuals */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[data-answer="yes"] {
+  background-color: #ff66b2;
+  color: white;
+}
+
+button[data-answer="no"] {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+
+.valentine-btn:hover {
+  transform: scale(1.1);
+}
+
+.valentine-btn:active {
+  transform: scale(0.9);
+}
+
+.papers-container {
+  position: relative;
+  z-index: 0;
+  height: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.gif {
+  position: absolute;
+  max-width: 600px;
+  max-height: 600px;
+  opacity: 0; 
+  transition: opacity 1s ease-in, transform 1s ease-in-out 2s;
+}
+
+.text {
+  position: absolute;
+  left: 48%;
+  opacity: 0;
+  transition: opacity 1s ease-in 3s;
+  max-width: 600px;
+  font-family: "Dancing Script", cursive;
+  font-size: 40px;
+  color: #e60073;
+}
+
+.animate .gif {
+  opacity: 1;
+  transform: translateX(-350px); /* Moves GIF to the left */
+}
+
+.animate .text {
+  opacity: 1;
+}
+
+.animate .top-right-btn {
+  opacity: 1;
+}
+
+.post-container {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 1;
+  z-index: 0;
+}
+
+.top-right-btn {
+  display: inline-block;
+  position: absolute;
+  will-change: transform;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: opacity 1s ease-in 4s;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.top-right-btn:hover {
+  transform: scale(1.1);
+}
+
+.top-right-btn:active {
+  transform: scale(0.9);
+}
